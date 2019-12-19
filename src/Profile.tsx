@@ -3,9 +3,9 @@ import React from 'react';
 export const Profile = () => {
     return (
         <div className="px-32 py-20 flex">
-            <div className="flex items-center">
-                <img className="rounded-full w-40 h-40" src={require('./dummy.jpg')} />
-                <div className="ml-12 bg-orange-400 px-8 py-4 text-white text-base">
+            <div className="flex items-center bg-gray-200">
+                <img className="rounded-full ml-5 w-32 h-32" src={require('./dummy.jpg')} />
+                <div className="ml-8 mr-8 bg-orange-400 px-8 py-4 text-white text-base">
                     <span>Crew 김희선</span>
                 </div>
             </div>

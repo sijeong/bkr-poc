@@ -14,8 +14,9 @@ export const Main = () => {
             {/* <DivTest /> */}
             {/* <Header /> */}
             <Menu />
-            {/* <Test2 /> */}
             <Profile />
+            <Test2 />
+
             {/* <Test /> */}
 
             {/* <Home />
