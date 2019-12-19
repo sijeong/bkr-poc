@@ -6,7 +6,7 @@ export const Menu = () => {
     return (
         <div className="w-full h-16 px-32 bg-black text-white flex items-center justify-between flex-wrap">
             <div className="flex w-3/4 items-center justify-around">
-                <div className="p-3 border border-l-0 border-t-0 border-r-0  border-b-4 border-yellow-600">
+                <div className="p-3">
                     <FontAwesomeIcon icon={faUserCircle} className="mr-2" />
                     <span>My 정보</span>
                 </div>
