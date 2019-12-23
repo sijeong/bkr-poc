@@ -1,5 +1,7 @@
 import React from 'react';
-
+import { storeContext } from '../context';
+import { useObserver } from 'mobx-react-lite';
+import { Education } from '../store'
 
 const list = [{
     eduName: "성희롱 예방교육",
@@ -11,27 +13,29 @@ const list = [{
     endMinute: 30,
     result: ""
 },
-{eduName: "직장내 괴롭힘 방지 교육",
+{
+    eduName: "직장내 괴롭힘 방지 교육",
     date: new Date(),
     duration: 3,
     startHour: 9,
     startMinute: 30,
     endHour: 15,
     endMinute: 30,
-    result: ""}
+    result: ""
+}
 ]
 
-export const EduHistory = () => {
+export const EduHistory: React.FC<{ educations: Education[] }> = ({ educations }) => {
     return (
         <div className="max-w-6xl  m-auto">
             <h1 className="text-2xl">교육 이력</h1>
             <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
                 {
-                    list.map(l=> {
+                    educations.map(e => {
                         return (
                             <div className="flex w-full">
                                 <div className="w-2/12 flex items-center justify-center border border-gray-200 ">
-                                    {l.eduName}
+                                    {e.name}
                                 </div>
 
                                 <div className="w-10/12 flex">
@@ -40,33 +44,34 @@ export const EduHistory = () => {
                                             <div className="h-12 flex items-center justify-center bg-gray-200">
                                                 <label>일정</label>
                                             </div>
-                                            
-                                            <div className="h-10 flex items-center justify-center">{l.date.toLocaleString('ko-KR')}</div>
+
+                                            <div className="h-10 flex items-center justify-center">{e.startDate.toLocaleString('ko-KR')}</div>
                                         </div>
                                         <div className="text-center border">
                                             <div className="h-12 flex items-center justify-center bg-gray-200">
                                                 <label>학습시간</label>
                                             </div>
-                                            
+
                                             <div className="h-10 flex items-center justify-center">
-                                                <span>{l.startHour}:{l.startMinute} ~ {l.endHour}:{l.endMinute}</span>
+                                                {/* <span>{l.startHour}:{l.startMinute} ~ {l.endHour}:{l.endMinute}</span> */}
+                                                <span>{e.startDate.toLocaleTimeString('ko-KR')} ~ {e.endDate.toLocaleTimeString('ko-KR')}</span>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div className="flex flex-col w-1/2">
                                         <div className="text-center border">
                                             <div className="h-12 flex items-center justify-center bg-gray-200">
                                                 <label>시간</label>
                                             </div>
-                                            <div className="h-10 flex items-center justify-center">{l.duration} 시간</div>
+                                            <div className="h-10 flex items-center justify-center">{(e.endDate.getTime() - e.startDate.getTime())/3600000} 시간</div>
                                         </div>
                                         <div className="text-center border">
                                             <div className="h-12 flex items-center justify-center bg-gray-200">
                                                 <label>결과</label>
                                             </div>
-                                            
-                                            <div className="h-10 flex items-center justify-center">{l.result}</div>
+
+                                            <div className="h-10 flex items-center justify-center">{e.result}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -77,4 +82,12 @@ export const EduHistory = () => {
             </div>
         </div>
     )
+}
+
+export const EducationList = () => {
+    const store = React.useContext(storeContext);
+    if (!store) throw Error("Store shouldn't be null");
+    return useObserver(() => {
+        return <EduHistory educations={store.allEducations} />
+    })
 }

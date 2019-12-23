@@ -9,24 +9,28 @@ import { DivTest } from '../DivTest';
 import { Profile } from './Profile';
 import { EduAndCareer } from './EduAndCareer';
 import { ContractInfo } from './ContractInfo';
-import { EduHistory } from './EduHistory';
+import { EduHistory, EducationList } from './EduHistory';
+import StoreProvider from "../context";
 
 export const Main = () => {
     return (
-        <div className="w-full">
-            {/* <DivTest /> */}
-            {/* <Header /> */}
-            <Menu />
-            <Profile />
-            <PersonalInfo />
-            <EduAndCareer />
-            <ContractInfo />
-            <EduHistory />
+        <StoreProvider>
+            <div className="w-full">
+                {/* <DivTest /> */}
+                {/* <Header /> */}
+                <Menu />
+                <Profile />
+                <PersonalInfo />
+                <EduAndCareer />
+                <ContractInfo />
+                <EducationList />
+                {/* <EduHistory /> */}
 
-            {/* <Test /> */}
+                {/* <Test /> */}
 
-            {/* <Home />
+                {/* <Home />
             <Footer /> */}
-        </div>
+            </div>
+        </StoreProvider>
     );
 };
