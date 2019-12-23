@@ -3,10 +3,13 @@ import { Header } from './Header';
 import { Menu } from './Menu';
 import { Home } from './Home';
 import { Footer } from './Footer';
-import { Test } from './Test';
-import { Test2 } from './Test2';
-import { DivTest } from './DivTest';
+import { Test } from '../Test';
+import { PersonalInfo } from './PersonalInfo';
+import { DivTest } from '../DivTest';
 import { Profile } from './Profile';
+import { EduAndCareer } from './EduAndCareer';
+import { ContractInfo } from './ContractInfo';
+import { EduHistory } from './EduHistory';
 
 export const Main = () => {
     return (
@@ -15,7 +18,10 @@ export const Main = () => {
             {/* <Header /> */}
             <Menu />
             <Profile />
-            <Test2 />
+            <PersonalInfo />
+            <EduAndCareer />
+            <ContractInfo />
+            <EduHistory />
 
             {/* <Test /> */}
 
