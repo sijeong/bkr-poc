@@ -5,8 +5,7 @@ import { Home } from './Home';
 import { Footer } from './Footer';
 import { Test } from '../Test';
 import { PersonalInfo } from './PersonalInfo';
-import { DivTest } from '../DivTest';
-import { Profile } from './Profile';
+import { ProfileInfoList } from './Profile';
 import { EduAndCareer } from './EduAndCareer';
 import { ContractInfoList } from './ContractInfo';
 import { EducationList } from './EduHistory';
@@ -16,20 +15,12 @@ export const Main = () => {
     return (
         <StoreProvider>
             <div className="w-full">
-                {/* <DivTest /> */}
-                {/* <Header /> */}
                 <Menu />
-                <Profile />
+                <ProfileInfoList />
                 <PersonalInfo />
                 <EduAndCareer />
                 <ContractInfoList />
                 <EducationList />
-                {/* <EduHistory /> */}
-
-                {/* <Test /> */}
-
-                {/* <Home />
-            <Footer /> */}
             </div>
         </StoreProvider>
     );

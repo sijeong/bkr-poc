@@ -1,10 +1,11 @@
 
 import React from 'react';
-import {storeContext} from '../context';
-import {useObserver} from 'mobx-react-lite';
-import {ContractInfo} from '../store';
+import { storeContext } from '../context';
+import { useObserver } from 'mobx-react-lite';
+import { ContractInfo } from '../store';
+import { useRootData } from '../hooks';
 
-export const ContractInfoView: React.FC<{contractInfo: ContractInfo }> = ({contractInfo}) => {
+export const ContractInfoView: React.FC<{ contractInfo: ContractInfo }> = ({ contractInfo }) => {
     return (
         <div className="max-w-6xl  m-auto">
             <h1 className="text-2xl">계약정보</h1>
@@ -31,7 +32,7 @@ export const ContractInfoView: React.FC<{contractInfo: ContractInfo }> = ({contr
                         <span className="w-11/12 appearance-none block bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3">
                             {contractInfo.duration} 개월
                         </span>
-                        
+
                     </div>
                 </div>
                 <div className="-mx-3 flex mb-6 items-center">
@@ -39,9 +40,9 @@ export const ContractInfoView: React.FC<{contractInfo: ContractInfo }> = ({contr
                         <label className="w-1/6 tracking-wide text-grey-darker text-m mb-2">
                             소정근로시간
                         </label>
-                        <span 
+                        <span
                             className="block h-12 w-5/6 bg-white border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded">
-                                {(contractInfo.workTime.endDate.getTime() - contractInfo.workTime.startDate.getTime())/3600000} 시간
+                            {(contractInfo.workTime.endDate.getTime() - contractInfo.workTime.startDate.getTime()) / 3600000} 시간
                         </span>
                     </div>
                     <div className="flex w-1/2 h-12 px-3 items-center">
@@ -181,9 +182,8 @@ export const ContractInfoView: React.FC<{contractInfo: ContractInfo }> = ({contr
 }
 
 export const ContractInfoList = () => {
-    const store = React.useContext(storeContext);
-    if(!store) throw Error("store shouldn't be null");
+    const contractInfo = useRootData(store => store.contractInfo)
     return useObserver(() => {
-        return <ContractInfoView contractInfo={store.contractInfo}/>
+        return <ContractInfoView contractInfo={contractInfo} />
     })
 }

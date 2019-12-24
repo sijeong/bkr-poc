@@ -2,6 +2,7 @@ import React from 'react';
 import { storeContext } from '../context';
 import { useObserver } from 'mobx-react-lite';
 import { Education } from '../store'
+import { useRootData } from '../hooks';
 
 export const EduHistory: React.FC<{ educations: Education[] }> = ({ educations }) => {
     return (
@@ -62,9 +63,8 @@ export const EduHistory: React.FC<{ educations: Education[] }> = ({ educations }
 }
 
 export const EducationList = () => {
-    const store = React.useContext(storeContext);
-    if (!store) throw Error("Store shouldn't be null");
+    const educations = useRootData(store => store.allEducations)
     return useObserver(() => {
-        return <EduHistory educations={store.allEducations} />
+        return <EduHistory educations={educations} />
     })
 }
