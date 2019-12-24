@@ -8,8 +8,8 @@ import { PersonalInfo } from './PersonalInfo';
 import { DivTest } from '../DivTest';
 import { Profile } from './Profile';
 import { EduAndCareer } from './EduAndCareer';
-import { ContractInfo } from './ContractInfo';
-import { EduHistory, EducationList } from './EduHistory';
+import { ContractInfoList } from './ContractInfo';
+import { EducationList } from './EduHistory';
 import StoreProvider from "../context";
 
 export const Main = () => {
@@ -22,7 +22,7 @@ export const Main = () => {
                 <Profile />
                 <PersonalInfo />
                 <EduAndCareer />
-                <ContractInfo />
+                <ContractInfoList />
                 <EducationList />
                 {/* <EduHistory /> */}
 

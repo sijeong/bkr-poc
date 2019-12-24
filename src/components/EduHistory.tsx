@@ -3,28 +3,6 @@ import { storeContext } from '../context';
 import { useObserver } from 'mobx-react-lite';
 import { Education } from '../store'
 
-const list = [{
-    eduName: "성희롱 예방교육",
-    date: new Date(),
-    duration: 3,
-    startHour: 9,
-    startMinute: 30,
-    endHour: 15,
-    endMinute: 30,
-    result: ""
-},
-{
-    eduName: "직장내 괴롭힘 방지 교육",
-    date: new Date(),
-    duration: 3,
-    startHour: 9,
-    startMinute: 30,
-    endHour: 15,
-    endMinute: 30,
-    result: ""
-}
-]
-
 export const EduHistory: React.FC<{ educations: Education[] }> = ({ educations }) => {
     return (
         <div className="max-w-6xl  m-auto">
@@ -53,7 +31,6 @@ export const EduHistory: React.FC<{ educations: Education[] }> = ({ educations }
                                             </div>
 
                                             <div className="h-10 flex items-center justify-center">
-                                                {/* <span>{l.startHour}:{l.startMinute} ~ {l.endHour}:{l.endMinute}</span> */}
                                                 <span>{e.startDate.toLocaleTimeString('ko-KR')} ~ {e.endDate.toLocaleTimeString('ko-KR')}</span>
                                             </div>
                                         </div>
@@ -64,7 +41,7 @@ export const EduHistory: React.FC<{ educations: Education[] }> = ({ educations }
                                             <div className="h-12 flex items-center justify-center bg-gray-200">
                                                 <label>시간</label>
                                             </div>
-                                            <div className="h-10 flex items-center justify-center">{(e.endDate.getTime() - e.startDate.getTime())/3600000} 시간</div>
+                                            <div className="h-10 flex items-center justify-center">{(e.endDate.getTime() - e.startDate.getTime()) / 3600000} 시간</div>
                                         </div>
                                         <div className="text-center border">
                                             <div className="h-12 flex items-center justify-center bg-gray-200">

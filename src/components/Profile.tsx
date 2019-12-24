@@ -1,5 +1,14 @@
 import React from 'react';
 
+type profileInfo = {
+    wideArea: string;
+    smallArea: string;
+    store: string;
+    position: string;
+    joinDate: Date;
+    resignationDate: Date;
+}
+
 export const Profile = () => {
     return (
         <div className="px-32 py-20 flex justify-center">
