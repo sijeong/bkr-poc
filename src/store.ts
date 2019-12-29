@@ -106,6 +106,29 @@ const profileInfoData: profileInfo = {
   resignationDate: new Date()
 };
 
+const employeeList: Partial<profileInfo>[] = [
+  {
+    name: "김희선",
+    smallArea: "강남",
+    position: "crew"
+  },
+  {
+    name: "김우리",
+    smallArea: "강남",
+    position: "crew"
+  },
+  {
+    name: "김하나",
+    smallArea: "강남",
+    position: "crew"
+  },
+  {
+    name: "김당근",
+    smallArea: "강남",
+    position: "crew"
+  }
+];
+
 export const createStore = () => {
   const store = {
     get allEducations() {
@@ -118,6 +141,11 @@ export const createStore = () => {
 
     get profileInfo() {
       return profileInfoData;
+    },
+
+    get employeeInfoList() {
+      console.log("sssss", employeeList);
+      return employeeList;
     }
   };
 

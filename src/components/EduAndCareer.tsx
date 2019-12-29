@@ -2,8 +2,8 @@ import React from 'react';
 
 export const EduAndCareer = () => {
     return (
-        <div className="max-w-6xl  m-auto">
-            <h1 className="text-2xl">학력 및 경력</h1>
+        <div className="max-w-6xl  m-auto mt-20">
+            <h1 className="text-4xl mb-10">학력 및 경력</h1>
             <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
                 <div className="-mx-3 flex mb-6 items-center">
                     <div className="flex w-1/2 px-3 mb-6 md:mb-0 align-middle items-center">

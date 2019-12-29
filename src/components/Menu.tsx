@@ -2,31 +2,32 @@ import React from "react";
 import {
     faUserCircle, faUsers, faUserClock, faClock, faBookReader,
     faBookOpen, faUserPlus, faWonSign, faCalendarAlt, faFileAlt,
-    faFolder, faPrint, faSignOutAlt, faStore, faFile
+    faFolder, faPrint, faSignOutAlt, faStore, faFile, faSignInAlt
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Menu = () => {
     return (
-        <div className="w-full h-16 px-32 bg-black text-white flex items-center justify-between flex-wrap">
-            <div className="flex w-3/4 items-center justify-around">
-                <div className="dropdown inline-block relative">
+        <div className="fixed top-0 flex flex-wrap items-center justify-between w-full h-20 px-32 text-gray-800 bg-white">
+            <div className="flex items-center justify-around w-3/4">
+                <img className="flex items-center w-16 rounded-full" src={require('../img/burgerKing.png')} />
+                <div className="relative inline-block dropdown">
                     <button type="button" className="inline-flex items-center p-5">
                         <FontAwesomeIcon icon={faUserCircle} className="mr-2" />
                         <span>My 메뉴</span>
                     </button>
-                    <ul className="dropdown-menu absolute hidden bg-black p-2">
-                        <li className="inline-flex h-12 items-center px-2">
+                    <ul className="absolute hidden p-2 bg-white dropdown-menu">
+                        <li className="inline-flex items-center h-12 px-2">
                             <FontAwesomeIcon icon={faUserCircle} className="mr-2" />
-                            <a className="hover:py-6 px-4 block whitespace-no-wrap" href="#">My 정보</a>
+                            <a className="block px-4 whitespace-no-wrap hover:py-6" href="#">My 정보</a>
                         </li>
-                        <li className="inline-flex h-12 items-center px-2">
+                        <li className="inline-flex items-center h-12 px-2">
                             <FontAwesomeIcon icon={faUserClock} className="mr-2" />
-                            <a className="hover:py-6 px-4 block whitespace-no-wrap" href="#">My 근태</a>
+                            <a className="block px-4 whitespace-no-wrap hover:py-6" href="#">My 근태</a>
                         </li>
-                        <li className="inline-flex h-12 items-center px-2">
+                        <li className="inline-flex items-center h-12 px-2">
                             <FontAwesomeIcon icon={faBookReader} className="mr-2" />
-                            <a className="hover:py-6 px-4 block whitespace-no-wrap" href="#">My 교육</a>
+                            <a className="block px-4 whitespace-no-wrap hover:py-6" href="#">My 교육</a>
                         </li>
                     </ul>
                 </div>
@@ -56,49 +57,53 @@ export const Menu = () => {
                 </div>
 
 
-                <div className="dropdown inline-block relative">
+                <div className="relative inline-block dropdown">
                     <button type="button" className="inline-flex items-center p-5">
                         <FontAwesomeIcon icon={faStore} className="mr-2" />
                         <span>매장 관리</span>
                     </button>
-                    <ul className="dropdown-menu absolute hidden bg-black p-2">
-                        <li className="inline-flex h-12 items-center px-2">
+                    <ul className="absolute hidden p-2 bg-white dropdown-menu">
+                        <li className="inline-flex items-center h-12 px-2">
                             <FontAwesomeIcon icon={faWonSign} className="mr-2" />
-                            <a className="hover:py-2 px-4 block whitespace-no-wrap" href="#">매장 급여 현황</a>
+                            <a className="block px-4 whitespace-no-wrap hover:py-2" href="#">매장 급여 현황</a>
                         </li>
-                        <li className="inline-flex h-12 items-center px-2">
+                        <li className="inline-flex items-center h-12 px-2">
                             <FontAwesomeIcon icon={faCalendarAlt} className="mr-2" />
-                            <a className="hover:py-2 px-4 block whitespace-no-wrap" href="#">매장 연차 관리</a>
+                            <a className="block px-4 whitespace-no-wrap hover:py-2" href="#">매장 연차 관리</a>
                         </li>
                     </ul>
                 </div>
 
 
-                <div className="dropdown inline-block relative">
+                <div className="relative inline-block dropdown">
                     <button type="button" className="inline-flex items-center p-5">
                         <FontAwesomeIcon icon={faFile} className="mr-2" />
                         <span>문서 관리</span>
                     </button>
-                    <ul className="dropdown-menu absolute hidden bg-black p-2">
-                        <li className="inline-flex h-12 items-center px-2">
+                    <ul className="absolute hidden p-2 bg-white dropdown-menu">
+                        <li className="inline-flex items-center h-12 px-2">
                             <FontAwesomeIcon icon={faFolder} className="mr-2" />
-                            <a className="hover:py-2 px-4 block whitespace-no-wrap" href="#">문서함</a>
+                            <a className="block px-4 whitespace-no-wrap hover:py-2" href="#">문서함</a>
                         </li>
-                        <li className="inline-flex h-12 items-center px-2">
+                        <li className="inline-flex items-center h-12 px-2">
                             <FontAwesomeIcon icon={faFileAlt} className="mr-2" />
-                            <a className="hover:py-2 px-4 block whitespace-no-wrap" href="#">리포트 관리</a>
+                            <a className="block px-4 whitespace-no-wrap hover:py-2" href="#">리포트 관리</a>
                         </li>
-                        <li className="inline-flex h-12 items-center px-2">
+                        <li className="inline-flex items-center h-12 px-2">
                             <FontAwesomeIcon icon={faPrint} className="mr-2" />
-                            <a className="hover:py-2 px-4 block whitespace-no-wrap" href="#">증명서 신청</a>
+                            <a className="block px-4 whitespace-no-wrap hover:py-2" href="#">증명서 신청</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div>
+                <FontAwesomeIcon icon={faSignInAlt} className="mr-2" />
+                <span>로그인</span>
+            </div>
+            {/* <div>
                 <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
                 <span>로그아웃</span>
-            </div>
+            </div> */}
         </div>
     );
 };
