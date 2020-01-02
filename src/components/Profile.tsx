@@ -6,11 +6,11 @@ import { profileInfo } from '../store';
 export const Profile: React.FC<{ profile: profileInfo }> = ({ profile }) => {
     return (
         <div className="max-w-6xl m-auto">
-            <h1 className="text-4xl mb-10">프로필</h1>
-            <div className="flex w-full m-auto bg-white rounded shadow-md px-8 pt-6 pb-8">
-                <div className="flex items-center w-1/3">
+            <h1 className="mb-10 text-4xl">프로필</h1>
+            <div className="flex w-full px-8 pt-6 pb-8 m-auto bg-white rounded shadow-md">
+                <div className="flex items-center w-auto bg-indigo-100">
                     <img className="w-32 h-32 ml-5 rounded-full" src={require('../img/dummy.jpg')} />
-                    <div className="px-8 py-4 ml-8 mr-8 text-base text-white bg-orange-400">
+                    <div className="px-8 py-4 ml-8 mr-8 text-base text-white bg-orange-400 text-center">
                         <span>{profile.position.toUpperCase()} {profile.name}</span>
                     </div>
                 </div>

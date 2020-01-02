@@ -1,18 +1,9 @@
 import React from 'react';
-
-enum isMinor {
-    YES = "해당",
-    NO = "해당사항없음"
-}
+import { Length, Min, IsInt, Max, IsPhoneNumber, IsMobilePhone, IsEmail, IsNumberString } from 'class-validator'
 
 enum gender {
     FEMALE = "여",
     MALE = "남"
-}
-
-enum isDisabled {
-    YES = "해당",
-    NO = "해당사항없음"
 }
 
 enum disabilityRating {
@@ -38,47 +29,108 @@ enum typesOfDisorders {
     TRADIVEDYSKINESIA = "안면장애",
 
 }
-export type personalInfo = {
-    nameKor: string;
-    nameEng: string;
-    IDNumber: {
-        DOB: number;
-        certificationNumber: number;
-    };
-    minor: isMinor;
-    employeeNumber: number;
+
+
+
+export class PersonalInfoClass {
+    @Length(1, 5)
+    firstNameKor: string;
+
+    @Length(1, 20)
+    lastNameKor: string;
+
+    @Length(1, 20)
+    firstNameEng: string;
+
+    @Length(1, 20)
+    lastNameEng: string;
+
+    @Length(6)
+    @IsNumberString()
+    idDOB: string;
+
+    @Length(7)
+    @IsNumberString()
+    idCertNum: string;
+
+    isTeenager: boolean;
+
+    @IsNumberString()
+    employeeNumber: string;
+
     gender: gender;
+
+    @IsInt()
+    @Min(17)
+    @Max(80)
     age: number;
-    phoneNumber: number;
+
+    @Length(3)
+    @IsNumberString()
+    phoneNumber1: string;
+
+    @Length(3, 4)
+    @IsNumberString()
+    phoneNumber2: string;
+
+    @Length(4)
+    @IsNumberString()
+    phoneNumber3: string;
+
+    @IsEmail()
     email: string;
+
     address: string;
-    emergencyContact: number;
+
+    @IsNumberString()
+    @Length(2, 3)
+    emergencyContact1: string;
+
+    @IsNumberString()
+    @Length(3)
+    emergencyContact2: string;
+
+    @IsNumberString()
+    @Length(4)
+    emergencyContact3: string;
+
     relation: string;
-    disabled: isDisabled;
-    welfareCardNumber: number;
+
+    isDisabled: boolean;
+
+    @IsNumberString()
+    welfareCardNumber: string;
+
     disabilityRating: disabilityRating;
+
     typesOfDisorders: typesOfDisorders;
-
-
-
 }
+
+
 export const PersonalInfo = () => {
     return (
         <div className="max-w-6xl m-auto mt-20">
-            <h1 className="text-4xl mb-10">인적사항</h1>
+            <h1 className="mb-10 text-4xl">인적사항</h1>
             <div className="flex flex-col px-8 pt-6 pb-8 my-2 mb-4 bg-white rounded shadow-md">
                 <div className="flex items-center mb-6 -mx-3">
                     <div className="flex items-center w-1/2 px-3 mb-6 align-middle md:mb-0">
                         <label className="w-1/6 mb-2 tracking-wide text-grey-darker text-m">
                             이름
                         </label>
-                        <input className="w-5/6 px-4 py-3 mb-3 border rounded appearance-none bg-grey-lighter text-grey-darker border-red" type="text" placeholder="홍길동" />
+                        <div className="w-5/6 text-grey-darker" >
+                            <input className="w-full px-4 py-3 mb-3 mr-1 border rounded" type="text" placeholder="성" />
+                            <input className="w-full px-4 py-3 mb-3 border rounded" type="text" placeholder="이름" />
+                        </div>
+
                     </div>
                     <div className="flex items-center w-1/2 px-3">
                         <label className="w-1/6 mb-2 tracking-wide text-grey-darker text-m">
                             영문
                         </label>
-                        <input className="w-5/6 px-4 py-3 mb-3 border rounded appearance-none bg-grey-lighter text-grey-darker border-grey-lighter" type="text" placeholder="Hong gil-dong" />
+                        <div className="w-5/6 text-grey-darker" >
+                            <input className="w-full px-4 py-3 mb-3 mr-1 border rounded" type="text" placeholder="성" />
+                            <input className="w-full px-4 py-3 mb-3 border rounded" type="text" placeholder="이름" />
+                        </div>
                     </div>
                 </div>
                 <div className="flex items-center mb-6 -mx-3">
@@ -134,9 +186,9 @@ export const PersonalInfo = () => {
                 <div className="flex items-center mb-6 -mx-3">
                     <div className="flex items-center w-1/2 px-3 mb-6 align-middle md:mb-0">
                         <label className="w-1/6 mb-2 tracking-wide text-grey-darker text-m">
-                            연락처
+                            휴대폰 번호
                         </label>
-                        <input className="w-5/6 px-4 py-3 mb-3 border rounded appearance-none bg-grey-lighter text-grey-darker border-red" type="text" placeholder="02-1234-1234" />
+                        <input className="w-5/6 px-4 py-3 mb-3 border rounded appearance-none bg-grey-lighter text-grey-darker border-red" type="text" placeholder="010-1234-1234" />
                     </div>
                     <div className="flex items-center w-1/2 px-3">
                         <label className="w-1/6 mb-2 tracking-wide text-grey-darker text-m">

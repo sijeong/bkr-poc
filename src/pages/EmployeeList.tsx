@@ -3,12 +3,14 @@ import { Menu } from '../components/Menu';
 import { profileInfo } from '../store';
 import { useRootData } from '../hooks';
 import { useObserver } from 'mobx-react-lite';
+import { Footer } from '../components/Footer';
+// import {RLDD} from 'react-list-drag-and-drop';
 
 export const EmployeeList: React.FC<{ employeeInfo: Partial<profileInfo>[] }> = ({ employeeInfo }) => {
     return (
         <div className="w-full">
             <Menu />
-            <div className="mt-20 ml-20 max-wd-md">
+            <div className="mt-32 ml-20 max-wd-md">
                 <h1 className="w-full text-3xl font-semibold text-gray-700">직원 리스트</h1>
             </div>
             <div className="flex flex-col w-full mt-12 ml-20 overflow-x-scroll">
@@ -131,6 +133,7 @@ export const EmployeeList: React.FC<{ employeeInfo: Partial<profileInfo>[] }> = 
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

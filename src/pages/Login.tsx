@@ -1,11 +1,12 @@
 import React from 'react';
 import { Menu } from '../components/Menu';
+import { Footer } from '../components/Footer';
 
 export const Login = () => {
     return (
         <div className="w-full">
             <Menu />
-            <div className="flex h-full max-w-md p-10 mx-auto my-32 overflow-hidden bg-white rounded-lg shadow contianer xl:max-w-5xl">
+            <div className="flex h-full max-w-md p-10 mx-auto my-32 mt-56 overflow-hidden bg-white rounded-lg shadow contianer xl:max-w-5xl">
                 <div className="relative hidden h-full xl:block xl:w-1/2">
                     <img src={require('../img/burgerKing.png')} />
                 </div>
@@ -50,6 +51,7 @@ export const Login = () => {
 
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

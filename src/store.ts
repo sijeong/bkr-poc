@@ -1,5 +1,18 @@
 import { create } from "domain";
 
+export type Section = {
+  id: string;
+  label: string;
+};
+
+const sections: Section[] = [
+  { id: "profile", label: "프로필" },
+  { id: "personalInfo", label: "인적사항" },
+  { id: "eduAndCareer", label: "학력 및 경력" },
+  { id: "contractInfo", label: "계약 정보" },
+  { id: "eduHistory", label: "교육 이력" }
+];
+
 export type Education = {
   name: string;
   startDate: Date;
@@ -144,8 +157,11 @@ export const createStore = () => {
     },
 
     get employeeInfoList() {
-      console.log("sssss", employeeList);
       return employeeList;
+    },
+
+    get sectionLink() {
+      return sections;
     }
   };
 
