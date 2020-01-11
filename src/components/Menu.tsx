@@ -19,7 +19,7 @@ export const Menu = () => {
                     <ul className="absolute hidden p-2 bg-white dropdown-menu">
                         <li className="inline-flex items-center h-12 px-2">
                             <FontAwesomeIcon icon={faUserCircle} className="mr-2" />
-                            <a className="block px-4 whitespace-no-wrap hover:py-6" href="#">My 정보</a>
+                            <a className="block px-4 whitespace-no-wrap hover:py-6" href="/myinfo">My 정보</a>
                         </li>
                         <li className="inline-flex items-center h-12 px-2">
                             <FontAwesomeIcon icon={faUserClock} className="mr-2" />
