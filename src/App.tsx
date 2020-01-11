@@ -24,9 +24,9 @@ const App: React.FC = () => {
       <Router>
         <Switch>
           <Route exact path='/' component={Main} />
-          <Route exact path='/myInfo' component={MyInfo} />
+          <Route exact path='/myinfo' component={MyInfo} />
           <Route exact path='/login' component={Login} />
-          <Route exact path='/employeeList' component={EmployeeInfoList} />
+          <Route exact path='/employeelist' component={EmployeeInfoList} />
         </Switch>
       </Router>
     </StoreProvider>
