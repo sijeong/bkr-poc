@@ -11,7 +11,7 @@ export const Menu = () => {
         <div className="fixed top-0 flex flex-wrap items-center justify-between w-full h-20 px-32 text-gray-800 bg-white">
             <div className="flex items-center justify-around w-3/4">
                 <a href="/">
-                    <img className="flex items-center w-16 rounded-full" src={require('../img/burgerKing.png')} alt=""/>
+                    <img className="flex items-center w-16 rounded-full" src={require('../img/burgerKing.png')} alt="" />
                 </a>
 
                 <div className="relative inline-block dropdown">
@@ -37,7 +37,9 @@ export const Menu = () => {
 
                 <div>
                     <FontAwesomeIcon icon={faUsers} className="mr-2" />
-                    <span>우리 팀</span>
+                    <span>
+                        <a href="/employeelist">우리 팀</a>
+                    </span>
                 </div>
 
 
@@ -101,7 +103,9 @@ export const Menu = () => {
             </div>
             <div>
                 <FontAwesomeIcon icon={faSignInAlt} className="mr-2" />
-                <span>로그인</span>
+                <span>
+                    <a href="/login">로그인</a>
+                </span>
             </div>
             {/* <div>
                 <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
