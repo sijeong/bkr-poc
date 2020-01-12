@@ -10,7 +10,10 @@ export const Menu = () => {
     return (
         <div className="fixed top-0 flex flex-wrap items-center justify-between w-full h-20 px-32 text-gray-800 bg-white">
             <div className="flex items-center justify-around w-3/4">
-                <img className="flex items-center w-16 rounded-full" src={require('../img/burgerKing.png')} />
+                <a href="/">
+                    <img className="flex items-center w-16 rounded-full" src={require('../img/burgerKing.png')} alt=""/>
+                </a>
+
                 <div className="relative inline-block dropdown">
                     <button type="button" className="inline-flex items-center p-5">
                         <FontAwesomeIcon icon={faUserCircle} className="mr-2" />
